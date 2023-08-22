@@ -1,0 +1,80 @@
+input: An array of arrays of words and definitions
+output: Build a tree that would be used as a dictionary.
+
+Use cases
+
+****************************
+Use case 1
+If given this:
+[
+	[‘and’,‘AND_DEFINITION’]
+]
+The resulting tree should be
+[{
+	letter: ‘a’
+	definition: null,
+	children: [{
+		letter: ‘n’,
+		definition: null,
+		children: [{
+			letter: d,
+			definition: ‘AND_DEFINITION’
+		}]
+	}]
+}]
+****************************
+Use case 2
+If given this:
+[
+	[‘an’,‘AN_DEFINITION’],
+	[‘and’,‘AND_DEFINITION’]
+]
+The resulting tree should be
+[{
+	letter: ‘a’
+	definition: null,
+	children: [{
+		letter: ‘n’,
+		definition: ‘AN_DEFINITION’,
+		children: [{
+			letter: d,
+			definition: ‘AND_DEFINITION’
+		}]
+	}]
+}]
+****************************
+Use case 3
+If given this:
+[
+	[‘an’,‘AN_DEFINITION’],
+	[‘and’,‘AND_DEFINITION’]
+	[‘boat’,‘BOAT_DEFINITION’]
+]
+The resulting tree should be
+[{
+	letter: ‘a’
+	definition: null,
+	children: [{
+		letter: ‘n’,
+		definition: ‘AN_DEFINITION’,
+		children: [{
+			letter: d,
+			definition: ‘AND_DEFINITION’
+		}]
+	}]
+},{
+	letter: ‘b’
+	definition: null,
+	children: [{
+		letter: ‘o’,
+		definition: null,
+		children: [{
+			letter: a,
+			definition: null,
+			children: [{
+				letter: t,
+				definition: ‘BOAT_DEFINITION’,
+			}]
+		}]
+	}]
+}]
